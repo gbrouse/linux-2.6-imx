@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Copyright (C) 2014-2016 Variscite, Ltd. All Rights Reserved
  * Donio Ron: ron.d@variscite.com
  *
@@ -783,7 +783,7 @@
 	pinctrl-0 = <&pinctrl_usbotg_var>;
 	disable-over-current;
 	/* dr_mode: One of "host", "peripheral" or "otg". Defaults to "otg" */
-	dr_mode = "host" ;
+	dr_mode = "peripheral" ;
 	status = "okay";
 };
 

@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Copyright (C) 2014-2016 Variscite, Ltd. All Rights Reserved
  * Donio Ron: ron.d@variscite.com
  *
@@ -738,7 +738,7 @@
 	pinctrl-0 = <&pinctrl_usbotg_2>;
 	disable-over-current;
 	/* dr_mode: One of "host", "peripheral" or "otg". Defaults to "otg" */
-	dr_mode = "host";	/* Use "host" if you would like to use the USB0 type A connector */
+	dr_mode = "peripheral";	/* Use "host" if you would like to use the USB0 type A connector */
 	status = "okay";
 };
 
