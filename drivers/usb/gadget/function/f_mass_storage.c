@@ -2508,11 +2508,21 @@ static void handle_exception(struct fsg_common *common)
 		spin_unlock_irq(&common->lock);
 		break;
 
-	case FSG_STATE_INTERFACE_CHANGE:
+        case FSG_STATE_INTERFACE_CHANGE:
+            printf("%s:%d FSG_STATE_INTERFACE_CHANGE\n",__FUNCTION__,__LINE);
+            break;
 	case FSG_STATE_DISCONNECT:
+            printf("%s:%d FSG_STATE_DISCONNECT\n",__FUNCTION__,__LINE);
+            break;
 	case FSG_STATE_COMMAND_PHASE:
+            printf("%s:%d FSG_STATE_COMMAND_PHASE\n",__FUNCTION__,__LINE);
+            break;
 	case FSG_STATE_DATA_PHASE:
+            printf("%s:%d FSG_STATE_DATA_PHASE\n",__FUNCTION__,__LINE);
+            break;
 	case FSG_STATE_STATUS_PHASE:
+            printf("%s:%d FSG_STATE_STATUS_PHASE\n",__FUNCTION__,__LINE);
+            break;
 	case FSG_STATE_IDLE:
 		break;
 	}
