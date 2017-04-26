@@ -337,6 +337,7 @@ dtb-$(CONFIG_SOC_IMX6Q) += \
 	imx6q-tx6q-1110.dtb \
 	imx6q-udoo.dtb \
 	imx6q-var-dart.dtb \
+	imx6q-var-dart-flir.dtb \
 	imx6q-var-som-cap.dtb \
 	imx6q-var-som-res.dtb \
 	imx6q-var-som-vsc.dtb \
