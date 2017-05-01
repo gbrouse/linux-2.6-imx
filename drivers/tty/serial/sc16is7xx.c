@@ -1049,6 +1049,8 @@ static int sc16is7xx_probe(struct device *dev,
 
 	if (IS_ERR(regmap))
 		return PTR_ERR(regmap);
+        dev_info(dev, "registering '%s'\n",
+                 dev->driver->name);
 
 	/* Alloc port structure */
 	s = devm_kzalloc(dev, sizeof(*s) +
