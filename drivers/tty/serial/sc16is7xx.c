@@ -1070,6 +1070,7 @@ static int sc16is7xx_probe(struct device *dev,
 		clk_prepare_enable(s->clk);
 		freq = clk_get_rate(s->clk);
 	}
+        dev_info(dev, "freq = %lu, irq = %d\n", freq,irq);
 
 	s->regmap = regmap;
 	s->devtype = devtype;
@@ -1079,6 +1080,7 @@ static int sc16is7xx_probe(struct device *dev,
 	s->uart.owner		= THIS_MODULE;
 	s->uart.dev_name	= "ttySC";
 	s->uart.nr		= devtype->nr_uart;
+        dev_info(dev, "s->uart.nr = %d\n", s->uart.nr);
 	ret = uart_register_driver(&s->uart);
 	if (ret) {
 		dev_err(dev, "Registering UART driver failed\n");
@@ -1225,7 +1227,8 @@ static int sc16is7xx_i2c_probe(struct i2c_client *i2c,
 	regcfg.max_register = (0xf << SC16IS7XX_REG_SHIFT) |
 			      (devtype->nr_uart - 1);
 	regmap = devm_regmap_init_i2c(i2c, &regcfg);
-
+        dev_info(&i2c->dev, "i2c addr = %02x", i2c->addr);
+        dev_info(&i2c->dev, "i2c dev name = %s", id->name);
 	return sc16is7xx_probe(&i2c->dev, devtype, regmap, i2c->irq, flags);
 }
 

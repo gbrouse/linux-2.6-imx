@@ -292,16 +292,27 @@
 		mclk = <24000000>;
 		mclk_source = <0>;
 	};
-	
-        sc16is750: sc16is750@51 {
-               compatible = "nxp,sc16is750";
+        sc16is752_1: sc16is752@51 {
+               compatible = "nxp,sc16is752";
                reg = <0x51>;
                clocks = <&clk_14P7456MHz>;
                interrupt-parent = <&gpio3>;
                interrupts = <7 IRQ_TYPE_EDGE_FALLING>;
                gpio-controller;
                #gpio-cells = <2>;
-       };
+	       };
+        sc16is752_2: sc16is752@52 {
+               compatible = "nxp,sc16is752";
+               reg = <0x52>;
+               clocks = <&clk_14P7456MHz>;
+               interrupt-parent = <&gpio3>;
+               interrupts = <7 IRQ_TYPE_EDGE_FALLING>;
+               gpio-controller;
+               #gpio-cells = <2>;
+	       };
+
+	       
+
 };
 
 &i2c2 {
@@ -329,6 +340,7 @@
 			0x0000 /* 5:Default */
 		>;
 	};
+
 };
 
 &i2c3 {
