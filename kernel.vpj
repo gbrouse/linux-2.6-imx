@@ -1,0 +1,515 @@
+<!DOCTYPE Project SYSTEM "http://www.slickedit.com/dtd/vse/10.0/vpj.dtd">
+<Project
+    Version="10.0"
+    VendorName="SlickEdit"
+    TemplateName="GNU C/C++"
+    WorkingDir="."
+    BuildSystem="vsbuild">
+    <Config
+        Name="Debug"
+        Type="gnuc"
+        DebugCallbackName="gdb"
+        Version="1"
+        OutputFile="%bdkernel"
+        CompilerConfigName="Latest Version">
+        <Menu>
+            <Target
+                Name="Compile"
+                MenuCaption="&amp;Compile"
+                Dialog="_gnuc_options_form Compile"
+                CaptureOutputWith="ProcessBuffer"
+                Deletable="0"
+                OutputExts="*.o"
+                SaveOption="SaveCurrent"
+                RunFromDir="%rw">
+                <Exec CmdLine='g++ -c %xup  %defd -g -o "%bd%n%oe" %i "%f"'/>
+            </Target>
+            <Target
+                Name="Link"
+                MenuCaption="&amp;Link"
+                ShowOnMenu="Never"
+                Dialog="_gnuc_options_form Link"
+                CaptureOutputWith="ProcessBuffer"
+                Deletable="0"
+                SaveOption="SaveCurrent"
+                RunFromDir="%rw">
+                <Exec CmdLine='g++ %xup -g -o "%o" %f %libs'/>
+            </Target>
+            <Target
+                Name="Build"
+                MenuCaption="&amp;Build"
+                Dialog="_gnuc_options_form Compile"
+                CaptureOutputWith="ProcessBuffer"
+                Deletable="0"
+                SaveOption="SaveWorkspaceFiles"
+                RunFromDir="%rw">
+                <Exec CmdLine='"%(VSLICKBIN1)vsbuild" "%w" "%r" -t build'/>
+            </Target>
+            <Target
+                Name="Rebuild"
+                MenuCaption="&amp;Rebuild"
+                Dialog="_gnuc_options_form Compile"
+                CaptureOutputWith="ProcessBuffer"
+                Deletable="0"
+                SaveOption="SaveWorkspaceFiles"
+                RunFromDir="%rw">
+                <Exec CmdLine='"%(VSLICKBIN1)vsbuild" "%w" "%r" -t rebuild'/>
+            </Target>
+            <Target
+                Name="Debug"
+                MenuCaption="&amp;Debug"
+                Dialog="_gnuc_options_form Run/Debug"
+                BuildFirst="1"
+                CaptureOutputWith="ProcessBuffer"
+                Deletable="0"
+                SaveOption="SaveNone"
+                RunFromDir="%rw">
+                <Exec CmdLine='vsdebugio -prog "%o"'/>
+            </Target>
+            <Target
+                Name="Execute"
+                MenuCaption="E&amp;xecute"
+                Dialog="_gnuc_options_form Run/Debug"
+                BuildFirst="1"
+                CaptureOutputWith="ProcessBuffer"
+                Deletable="0"
+                SaveOption="SaveWorkspaceFiles"
+                RunFromDir="%rw">
+                <Exec CmdLine='"%o"'/>
+            </Target>
+            <Target
+                Name="dash"
+                MenuCaption="-"
+                Deletable="0">
+                <Exec/>
+            </Target>
+            <Target
+                Name="GNU C Options"
+                MenuCaption="GNU C &amp;Options..."
+                ShowOnMenu="HideIfNoCmdLine"
+                Deletable="0"
+                SaveOption="SaveNone">
+                <Exec
+                    CmdLine="gnucoptions"
+                    Type="Slick-C"/>
+            </Target>
+        </Menu>
+        <List Name="GNUC Options">
+            <Item
+                Name="LinkerOutputType"
+                Value="Executable"/>
+        </List>
+    </Config>
+    <Config
+        Name="Release"
+        Type="gnuc"
+        DebugCallbackName="gdb"
+        Version="1"
+        OutputFile="%bdkernel"
+        CompilerConfigName="Latest Version">
+        <Menu>
+            <Target
+                Name="Compile"
+                MenuCaption="&amp;Compile"
+                Dialog="_gnuc_options_form Compile"
+                CaptureOutputWith="ProcessBuffer"
+                Deletable="0"
+                OutputExts="*.o"
+                SaveOption="SaveCurrent"
+                RunFromDir="%rw">
+                <Exec CmdLine='g++ -c %xup %defd -o "%bd%n%oe" %i "%f"'/>
+            </Target>
+            <Target
+                Name="Link"
+                MenuCaption="&amp;Link"
+                ShowOnMenu="Never"
+                Dialog="_gnuc_options_form Link"
+                CaptureOutputWith="ProcessBuffer"
+                Deletable="0"
+                SaveOption="SaveCurrent"
+                RunFromDir="%rw">
+                <Exec CmdLine='g++ %xup -o "%o" %f %libs'/>
+            </Target>
+            <Target
+                Name="Build"
+                MenuCaption="&amp;Build"
+                Dialog="_gnuc_options_form Compile"
+                CaptureOutputWith="ProcessBuffer"
+                Deletable="0"
+                SaveOption="SaveWorkspaceFiles"
+                RunFromDir="%rw">
+                <Exec CmdLine='"%(VSLICKBIN1)vsbuild" "%w" "%r" -t build'/>
+            </Target>
+            <Target
+                Name="Rebuild"
+                MenuCaption="&amp;Rebuild"
+                Dialog="_gnuc_options_form Compile"
+                CaptureOutputWith="ProcessBuffer"
+                Deletable="0"
+                SaveOption="SaveWorkspaceFiles"
+                RunFromDir="%rw">
+                <Exec CmdLine='"%(VSLICKBIN1)vsbuild" "%w" "%r" -t rebuild'/>
+            </Target>
+            <Target
+                Name="Debug"
+                MenuCaption="&amp;Debug"
+                Dialog="_gnuc_options_form Run/Debug"
+                BuildFirst="1"
+                CaptureOutputWith="ProcessBuffer"
+                Deletable="0"
+                SaveOption="SaveNone"
+                RunFromDir="%rw">
+                <Exec CmdLine='vsdebugio -prog "%o"'/>
+            </Target>
+            <Target
+                Name="Execute"
+                MenuCaption="E&amp;xecute"
+                Dialog="_gnuc_options_form Run/Debug"
+                BuildFirst="1"
+                CaptureOutputWith="ProcessBuffer"
+                Deletable="0"
+                SaveOption="SaveWorkspaceFiles"
+                RunFromDir="%rw">
+                <Exec CmdLine='"%o"'/>
+            </Target>
+            <Target
+                Name="dash"
+                MenuCaption="-"
+                Deletable="0">
+                <Exec/>
+            </Target>
+            <Target
+                Name="GNU C Options"
+                MenuCaption="GNU C &amp;Options..."
+                ShowOnMenu="HideIfNoCmdLine"
+                Deletable="0"
+                SaveOption="SaveNone">
+                <Exec
+                    CmdLine="gnucoptions"
+                    Type="Slick-C"/>
+            </Target>
+        </Menu>
+        <List Name="GNUC Options">
+            <Item
+                Name="LinkerOutputType"
+                Value="Executable"/>
+        </List>
+    </Config>
+    <Files>
+        <Folder
+            Name="Source Files"
+            Filters="*.c;*.C;*.cc;*.cpp;*.cp;*.cxx;*.c++;*.prg;*.pas;*.dpr;*.asm;*.s;*.bas;*.java;*.cs;*.sc;*.e;*.cob;*.html;*.rc;*.tcl;*.py;*.pl;*.d;*.m;*.mm;*.go">
+            <F N="kernel/acct.c"/>
+            <F N="kernel/time/alarmtimer.c"/>
+            <F N="kernel/bpf/arraymap.c"/>
+            <F N="kernel/async.c"/>
+            <F N="kernel/audit.c"/>
+            <F N="kernel/audit_tree.c"/>
+            <F N="kernel/audit_watch.c"/>
+            <F N="kernel/auditfilter.c"/>
+            <F N="kernel/auditsc.c"/>
+            <F N="kernel/sched/auto_group.c"/>
+            <F N="kernel/irq/autoprobe.c"/>
+            <F N="kernel/power/autosleep.c"/>
+            <F N="kernel/backtracetest.c"/>
+            <F N="kernel/gcov/base.c"/>
+            <F N="kernel/trace/blktrace.c"/>
+            <F N="kernel/power/block_io.c"/>
+            <F N="kernel/bounds.c"/>
+            <F N="kernel/trace/bpf_trace.c"/>
+            <F N="kernel/printk/braille.c"/>
+            <F N="kernel/events/callchain.c"/>
+            <F N="kernel/capability.c"/>
+            <F N="kernel/cgroup.c"/>
+            <F N="kernel/cgroup_freezer.c"/>
+            <F N="kernel/irq/chip.c"/>
+            <F N="kernel/sched/clock.c"/>
+            <F N="kernel/time/clockevents.c"/>
+            <F N="kernel/time/clocksource.c"/>
+            <F N="kernel/compat.c"/>
+            <F N="kernel/sched/completion.c"/>
+            <F N="kernel/configs.c"/>
+            <F N="kernel/power/console.c"/>
+            <F N="kernel/context_tracking.c"/>
+            <F N="kernel/bpf/core.c"/>
+            <F N="kernel/events/core.c"/>
+            <F N="kernel/livepatch/core.c"/>
+            <F N="kernel/sched/core.c"/>
+            <F N="kernel/cpu.c"/>
+            <F N="kernel/cpu_pm.c"/>
+            <F N="kernel/sched/cpuacct.c"/>
+            <F N="kernel/sched/cpudeadline.c"/>
+            <F N="kernel/sched/cpupri.c"/>
+            <F N="kernel/cpuset.c"/>
+            <F N="kernel/sched/cputime.c"/>
+            <F N="kernel/crash_dump.c"/>
+            <F N="kernel/cred.c"/>
+            <F N="kernel/sched/deadline.c"/>
+            <F N="kernel/sched/debug.c"/>
+            <F N="kernel/debug/debug_core.c"/>
+            <F N="kernel/delayacct.c"/>
+            <F N="kernel/irq/devres.c"/>
+            <F N="kernel/dma.c"/>
+            <F N="kernel/irq/dummychip.c"/>
+            <F N="kernel/elfcore.c"/>
+            <F N="kernel/exec_domain.c"/>
+            <F N="kernel/exit.c"/>
+            <F N="kernel/extable.c"/>
+            <F N="kernel/sched/fair.c"/>
+            <F N="kernel/fork.c"/>
+            <F N="kernel/freezer.c"/>
+            <F N="kernel/gcov/fs.c"/>
+            <F N="kernel/trace/ftrace.c"/>
+            <F N="kernel/futex.c"/>
+            <F N="kernel/futex_compat.c"/>
+            <F N="kernel/gcov/gcc_3_4.c"/>
+            <F N="kernel/gcov/gcc_4_7.c"/>
+            <F N="kernel/debug/gdbstub.c"/>
+            <F N="kernel/irq/generic-chip.c"/>
+            <F N="kernel/groups.c"/>
+            <F N="kernel/irq/handle.c"/>
+            <F N="kernel/bpf/hashtab.c"/>
+            <F N="kernel/bpf/helpers.c"/>
+            <F N="kernel/power/hibernate.c"/>
+            <F N="kernel/time/hrtimer.c"/>
+            <F N="kernel/hung_task.c"/>
+            <F N="kernel/events/hw_breakpoint.c"/>
+            <F N="kernel/sched/idle.c"/>
+            <F N="kernel/sched/idle_task.c"/>
+            <F N="kernel/irq_work.c"/>
+            <F N="kernel/irq/irqdesc.c"/>
+            <F N="kernel/irq/irqdomain.c"/>
+            <F N="kernel/time/itimer.c"/>
+            <F N="kernel/time/jiffies.c"/>
+            <F N="kernel/jump_label.c"/>
+            <F N="kernel/kallsyms.c"/>
+            <F N="kernel/kcmp.c"/>
+            <F N="kernel/debug/kdb/kdb_bp.c"/>
+            <F N="kernel/debug/kdb/kdb_bt.c"/>
+            <F N="kernel/debug/kdb/kdb_debugger.c"/>
+            <F N="kernel/debug/kdb/kdb_io.c"/>
+            <F N="kernel/debug/kdb/kdb_keyboard.c"/>
+            <F N="kernel/debug/kdb/kdb_main.c"/>
+            <F N="kernel/debug/kdb/kdb_support.c"/>
+            <F N="kernel/kexec.c"/>
+            <F N="kernel/kmod.c"/>
+            <F N="kernel/kprobes.c"/>
+            <F N="kernel/ksysfs.c"/>
+            <F N="kernel/kthread.c"/>
+            <F N="kernel/latencytop.c"/>
+            <F N="kernel/locking/lglock.c"/>
+            <F N="kernel/locking/lockdep.c"/>
+            <F N="kernel/locking/lockdep_proc.c"/>
+            <F N="kernel/locking/locktorture.c"/>
+            <F N="kernel/power/main.c"/>
+            <F N="kernel/irq/manage.c"/>
+            <F N="kernel/irq/migration.c"/>
+            <F N="kernel/module.c"/>
+            <F N="kernel/module_signing.c"/>
+            <F N="kernel/irq/msi.c"/>
+            <F N="kernel/locking/mutex-debug.c"/>
+            <F N="kernel/locking/mutex.c"/>
+            <F N="kernel/notifier.c"/>
+            <F N="kernel/nsproxy.c"/>
+            <F N="kernel/time/ntp.c"/>
+            <F N="kernel/locking/osq_lock.c"/>
+            <F N="kernel/padata.c"/>
+            <F N="kernel/panic.c"/>
+            <F N="kernel/params.c"/>
+            <F N="kernel/locking/percpu-rwsem.c"/>
+            <F N="kernel/pid.c"/>
+            <F N="kernel/pid_namespace.c"/>
+            <F N="kernel/irq/pm.c"/>
+            <F N="kernel/time/posix-clock.c"/>
+            <F N="kernel/time/posix-cpu-timers.c"/>
+            <F N="kernel/time/posix-timers.c"/>
+            <F N="kernel/trace/power-traces.c"/>
+            <F N="kernel/power/poweroff.c"/>
+            <F N="kernel/printk/printk.c"/>
+            <F N="kernel/irq/proc.c"/>
+            <F N="kernel/sched/proc.c"/>
+            <F N="kernel/power/process.c"/>
+            <F N="kernel/profile.c"/>
+            <F N="kernel/ptrace.c"/>
+            <F N="kernel/power/qos.c"/>
+            <F N="kernel/locking/qrwlock.c"/>
+            <F N="kernel/range.c"/>
+            <F N="kernel/rcu/rcutorture.c"/>
+            <F N="kernel/reboot.c"/>
+            <F N="kernel/relay.c"/>
+            <F N="kernel/irq/resend.c"/>
+            <F N="kernel/resource.c"/>
+            <F N="kernel/events/ring_buffer.c"/>
+            <F N="kernel/trace/ring_buffer.c"/>
+            <F N="kernel/trace/ring_buffer_benchmark.c"/>
+            <F N="kernel/trace/rpm-traces.c"/>
+            <F N="kernel/sched/rt.c"/>
+            <F N="kernel/locking/rtmutex-debug.c"/>
+            <F N="kernel/locking/rtmutex-tester.c"/>
+            <F N="kernel/locking/rtmutex.c"/>
+            <F N="kernel/locking/rwsem-spinlock.c"/>
+            <F N="kernel/locking/rwsem-xadd.c"/>
+            <F N="kernel/locking/rwsem.c"/>
+            <F N="kernel/time/sched_clock.c"/>
+            <F N="kernel/seccomp.c"/>
+            <F N="kernel/locking/semaphore.c"/>
+            <F N="kernel/signal.c"/>
+            <F N="kernel/smp.c"/>
+            <F N="kernel/smpboot.c"/>
+            <F N="kernel/power/snapshot.c"/>
+            <F N="kernel/softirq.c"/>
+            <F N="kernel/locking/spinlock.c"/>
+            <F N="kernel/locking/spinlock_debug.c"/>
+            <F N="kernel/irq/spurious.c"/>
+            <F N="kernel/rcu/srcu.c"/>
+            <F N="kernel/stacktrace.c"/>
+            <F N="kernel/sched/stats.c"/>
+            <F N="kernel/stop_machine.c"/>
+            <F N="kernel/sched/stop_task.c"/>
+            <F N="kernel/power/suspend.c"/>
+            <F N="kernel/power/suspend_test.c"/>
+            <F N="kernel/power/swap.c"/>
+            <F N="kernel/sys.c"/>
+            <F N="kernel/sys_ni.c"/>
+            <F N="kernel/bpf/syscall.c"/>
+            <F N="kernel/sysctl.c"/>
+            <F N="kernel/sysctl_binary.c"/>
+            <F N="kernel/system_certificates.S"/>
+            <F N="kernel/system_keyring.c"/>
+            <F N="kernel/task_work.c"/>
+            <F N="kernel/taskstats.c"/>
+            <F N="kernel/test_kprobes.c"/>
+            <F N="kernel/time/test_udelay.c"/>
+            <F N="kernel/time/tick-broadcast-hrtimer.c"/>
+            <F N="kernel/time/tick-broadcast.c"/>
+            <F N="kernel/time/tick-common.c"/>
+            <F N="kernel/time/tick-oneshot.c"/>
+            <F N="kernel/time/tick-sched.c"/>
+            <F N="kernel/time/time.c"/>
+            <F N="kernel/time/timeconv.c"/>
+            <F N="kernel/time/timecounter.c"/>
+            <F N="kernel/time/timekeeping.c"/>
+            <F N="kernel/time/timekeeping_debug.c"/>
+            <F N="kernel/time/timer.c"/>
+            <F N="kernel/time/timer_list.c"/>
+            <F N="kernel/time/timer_stats.c"/>
+            <F N="kernel/rcu/tiny.c"/>
+            <F N="kernel/torture.c"/>
+            <F N="kernel/trace/trace.c"/>
+            <F N="kernel/trace/trace_benchmark.c"/>
+            <F N="kernel/trace/trace_branch.c"/>
+            <F N="kernel/trace/trace_clock.c"/>
+            <F N="kernel/trace/trace_event_perf.c"/>
+            <F N="kernel/trace/trace_events.c"/>
+            <F N="kernel/trace/trace_events_filter.c"/>
+            <F N="kernel/trace/trace_events_trigger.c"/>
+            <F N="kernel/trace/trace_export.c"/>
+            <F N="kernel/trace/trace_functions.c"/>
+            <F N="kernel/trace/trace_functions_graph.c"/>
+            <F N="kernel/trace/trace_irqsoff.c"/>
+            <F N="kernel/trace/trace_kdb.c"/>
+            <F N="kernel/trace/trace_kprobe.c"/>
+            <F N="kernel/trace/trace_mmiotrace.c"/>
+            <F N="kernel/trace/trace_nop.c"/>
+            <F N="kernel/trace/trace_output.c"/>
+            <F N="kernel/trace/trace_printk.c"/>
+            <F N="kernel/trace/trace_probe.c"/>
+            <F N="kernel/trace/trace_sched_switch.c"/>
+            <F N="kernel/trace/trace_sched_wakeup.c"/>
+            <F N="kernel/trace/trace_selftest.c"/>
+            <F N="kernel/trace/trace_selftest_dynamic.c"/>
+            <F N="kernel/trace/trace_seq.c"/>
+            <F N="kernel/trace/trace_stack.c"/>
+            <F N="kernel/trace/trace_stat.c"/>
+            <F N="kernel/trace/trace_syscalls.c"/>
+            <F N="kernel/trace/trace_uprobe.c"/>
+            <F N="kernel/tracepoint.c"/>
+            <F N="kernel/rcu/tree.c"/>
+            <F N="kernel/rcu/tree_trace.c"/>
+            <F N="kernel/tsacct.c"/>
+            <F N="kernel/uid16.c"/>
+            <F N="kernel/up.c"/>
+            <F N="kernel/rcu/update.c"/>
+            <F N="kernel/events/uprobes.c"/>
+            <F N="kernel/user-return-notifier.c"/>
+            <F N="kernel/user.c"/>
+            <F N="kernel/power/user.c"/>
+            <F N="kernel/user_namespace.c"/>
+            <F N="kernel/utsname.c"/>
+            <F N="kernel/utsname_sysctl.c"/>
+            <F N="kernel/bpf/verifier.c"/>
+            <F N="kernel/sched/wait.c"/>
+            <F N="kernel/power/wakelock.c"/>
+            <F N="kernel/watchdog.c"/>
+            <F N="kernel/workqueue.c"/>
+        </Folder>
+        <Folder
+            Name="Header Files"
+            Filters="*.h;*.H;*.hh;*.hpp;*.hxx;*.h++;*.inc;*.sh;*.cpy;*.if">
+            <F N="kernel/audit.h"/>
+            <F N="kernel/sched/auto_group.h"/>
+            <F N="kernel/printk/braille.h"/>
+            <F N="kernel/printk/console_cmdline.h"/>
+            <F N="kernel/sched/cpuacct.h"/>
+            <F N="kernel/sched/cpudeadline.h"/>
+            <F N="kernel/sched/cpupri.h"/>
+            <F N="kernel/irq/debug.h"/>
+            <F N="kernel/debug/debug_core.h"/>
+            <F N="kernel/sched/features.h"/>
+            <F N="kernel/gcov/gcov.h"/>
+            <F N="kernel/events/internal.h"/>
+            <F N="kernel/irq/internals.h"/>
+            <F N="kernel/debug/kdb/kdb_private.h"/>
+            <F N="kernel/locking/lockdep_internals.h"/>
+            <F N="kernel/locking/lockdep_states.h"/>
+            <F N="kernel/locking/mcs_spinlock.h"/>
+            <F N="kernel/module-internal.h"/>
+            <F N="kernel/locking/mutex-debug.h"/>
+            <F N="kernel/locking/mutex.h"/>
+            <F N="kernel/time/ntp_internal.h"/>
+            <F N="kernel/power/power.h"/>
+            <F N="kernel/rcu/rcu.h"/>
+            <F N="kernel/locking/rtmutex-debug.h"/>
+            <F N="kernel/locking/rtmutex.h"/>
+            <F N="kernel/locking/rtmutex_common.h"/>
+            <F N="kernel/locking/rwsem.h"/>
+            <F N="kernel/sched/sched.h"/>
+            <F N="kernel/irq/settings.h"/>
+            <F N="kernel/smpboot.h"/>
+            <F N="kernel/sched/stats.h"/>
+            <F N="kernel/time/tick-internal.h"/>
+            <F N="kernel/time/tick-sched.h"/>
+            <F N="kernel/time/timekeeping.h"/>
+            <F N="kernel/time/timekeeping_internal.h"/>
+            <F N="kernel/rcu/tiny_plugin.h"/>
+            <F N="kernel/trace/trace.h"/>
+            <F N="kernel/trace/trace_benchmark.h"/>
+            <F N="kernel/trace/trace_entries.h"/>
+            <F N="kernel/trace/trace_events_filter_test.h"/>
+            <F N="kernel/trace/trace_output.h"/>
+            <F N="kernel/trace/trace_probe.h"/>
+            <F N="kernel/trace/trace_stat.h"/>
+            <F N="kernel/rcu/tree.h"/>
+            <F N="kernel/rcu/tree_plugin.h"/>
+            <F N="kernel/workqueue_internal.h"/>
+        </Folder>
+        <Folder
+            Name="Resource Files"
+            Filters="*.ico;*.cur;*.dlg"/>
+        <Folder
+            Name="Bitmaps"
+            Filters="*.bmp"/>
+        <Folder
+            Name="Other Files"
+            Filters="">
+            <F N="kernel/.gitignore"/>
+            <F N="kernel/debug/kdb/.gitignore"/>
+            <F N="kernel/Kconfig.freezer"/>
+            <F N="kernel/Kconfig.hz"/>
+            <F N="kernel/Kconfig.locks"/>
+            <F N="kernel/Kconfig.preempt"/>
+            <F N="kernel/time/timeconst.bc"/>
+            <F N="kernel/configs/tiny.config"/>
+        </Folder>
+    </Files>
+</Project>
