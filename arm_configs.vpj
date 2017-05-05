@@ -1,0 +1,330 @@
+<!DOCTYPE Project SYSTEM "http://www.slickedit.com/dtd/vse/10.0/vpj.dtd">
+<Project
+    Version="10.0"
+    VendorName="SlickEdit"
+    TemplateName="GNU C/C++"
+    WorkingDir="."
+    BuildSystem="vsbuild">
+    <Config
+        Name="Debug"
+        Type="gnuc"
+        DebugCallbackName="gdb"
+        Version="1"
+        OutputFile="%bdarm_configs"
+        CompilerConfigName="Latest Version">
+        <Menu>
+            <Target
+                Name="Compile"
+                MenuCaption="&amp;Compile"
+                Dialog="_gnuc_options_form Compile"
+                CaptureOutputWith="ProcessBuffer"
+                Deletable="0"
+                OutputExts="*.o"
+                SaveOption="SaveCurrent"
+                RunFromDir="%rw">
+                <Exec CmdLine='g++ -c %xup  %defd -g -o "%bd%n%oe" %i "%f"'/>
+            </Target>
+            <Target
+                Name="Link"
+                MenuCaption="&amp;Link"
+                ShowOnMenu="Never"
+                Dialog="_gnuc_options_form Link"
+                CaptureOutputWith="ProcessBuffer"
+                Deletable="0"
+                SaveOption="SaveCurrent"
+                RunFromDir="%rw">
+                <Exec CmdLine='g++ %xup -g -o "%o" %f %libs'/>
+            </Target>
+            <Target
+                Name="Build"
+                MenuCaption="&amp;Build"
+                Dialog="_gnuc_options_form Compile"
+                CaptureOutputWith="ProcessBuffer"
+                Deletable="0"
+                SaveOption="SaveWorkspaceFiles"
+                RunFromDir="%rw">
+                <Exec CmdLine='"%(VSLICKBIN1)vsbuild" "%w" "%r" -t build'/>
+            </Target>
+            <Target
+                Name="Rebuild"
+                MenuCaption="&amp;Rebuild"
+                Dialog="_gnuc_options_form Compile"
+                CaptureOutputWith="ProcessBuffer"
+                Deletable="0"
+                SaveOption="SaveWorkspaceFiles"
+                RunFromDir="%rw">
+                <Exec CmdLine='"%(VSLICKBIN1)vsbuild" "%w" "%r" -t rebuild'/>
+            </Target>
+            <Target
+                Name="Debug"
+                MenuCaption="&amp;Debug"
+                Dialog="_gnuc_options_form Run/Debug"
+                BuildFirst="1"
+                CaptureOutputWith="ProcessBuffer"
+                Deletable="0"
+                SaveOption="SaveNone"
+                RunFromDir="%rw">
+                <Exec CmdLine='vsdebugio -prog "%o"'/>
+            </Target>
+            <Target
+                Name="Execute"
+                MenuCaption="E&amp;xecute"
+                Dialog="_gnuc_options_form Run/Debug"
+                BuildFirst="1"
+                CaptureOutputWith="ProcessBuffer"
+                Deletable="0"
+                SaveOption="SaveWorkspaceFiles"
+                RunFromDir="%rw">
+                <Exec CmdLine='"%o"'/>
+            </Target>
+            <Target
+                Name="dash"
+                MenuCaption="-"
+                Deletable="0">
+                <Exec/>
+            </Target>
+            <Target
+                Name="GNU C Options"
+                MenuCaption="GNU C &amp;Options..."
+                ShowOnMenu="HideIfNoCmdLine"
+                Deletable="0"
+                SaveOption="SaveNone">
+                <Exec
+                    CmdLine="gnucoptions"
+                    Type="Slick-C"/>
+            </Target>
+        </Menu>
+        <List Name="GNUC Options">
+            <Item
+                Name="LinkerOutputType"
+                Value="Executable"/>
+        </List>
+    </Config>
+    <Config
+        Name="Release"
+        Type="gnuc"
+        DebugCallbackName="gdb"
+        Version="1"
+        OutputFile="%bdarm_configs"
+        CompilerConfigName="Latest Version">
+        <Menu>
+            <Target
+                Name="Compile"
+                MenuCaption="&amp;Compile"
+                Dialog="_gnuc_options_form Compile"
+                CaptureOutputWith="ProcessBuffer"
+                Deletable="0"
+                OutputExts="*.o"
+                SaveOption="SaveCurrent"
+                RunFromDir="%rw">
+                <Exec CmdLine='g++ -c %xup %defd -o "%bd%n%oe" %i "%f"'/>
+            </Target>
+            <Target
+                Name="Link"
+                MenuCaption="&amp;Link"
+                ShowOnMenu="Never"
+                Dialog="_gnuc_options_form Link"
+                CaptureOutputWith="ProcessBuffer"
+                Deletable="0"
+                SaveOption="SaveCurrent"
+                RunFromDir="%rw">
+                <Exec CmdLine='g++ %xup -o "%o" %f %libs'/>
+            </Target>
+            <Target
+                Name="Build"
+                MenuCaption="&amp;Build"
+                Dialog="_gnuc_options_form Compile"
+                CaptureOutputWith="ProcessBuffer"
+                Deletable="0"
+                SaveOption="SaveWorkspaceFiles"
+                RunFromDir="%rw">
+                <Exec CmdLine='"%(VSLICKBIN1)vsbuild" "%w" "%r" -t build'/>
+            </Target>
+            <Target
+                Name="Rebuild"
+                MenuCaption="&amp;Rebuild"
+                Dialog="_gnuc_options_form Compile"
+                CaptureOutputWith="ProcessBuffer"
+                Deletable="0"
+                SaveOption="SaveWorkspaceFiles"
+                RunFromDir="%rw">
+                <Exec CmdLine='"%(VSLICKBIN1)vsbuild" "%w" "%r" -t rebuild'/>
+            </Target>
+            <Target
+                Name="Debug"
+                MenuCaption="&amp;Debug"
+                Dialog="_gnuc_options_form Run/Debug"
+                BuildFirst="1"
+                CaptureOutputWith="ProcessBuffer"
+                Deletable="0"
+                SaveOption="SaveNone"
+                RunFromDir="%rw">
+                <Exec CmdLine='vsdebugio -prog "%o"'/>
+            </Target>
+            <Target
+                Name="Execute"
+                MenuCaption="E&amp;xecute"
+                Dialog="_gnuc_options_form Run/Debug"
+                BuildFirst="1"
+                CaptureOutputWith="ProcessBuffer"
+                Deletable="0"
+                SaveOption="SaveWorkspaceFiles"
+                RunFromDir="%rw">
+                <Exec CmdLine='"%o"'/>
+            </Target>
+            <Target
+                Name="dash"
+                MenuCaption="-"
+                Deletable="0">
+                <Exec/>
+            </Target>
+            <Target
+                Name="GNU C Options"
+                MenuCaption="GNU C &amp;Options..."
+                ShowOnMenu="HideIfNoCmdLine"
+                Deletable="0"
+                SaveOption="SaveNone">
+                <Exec
+                    CmdLine="gnucoptions"
+                    Type="Slick-C"/>
+            </Target>
+        </Menu>
+        <List Name="GNUC Options">
+            <Item
+                Name="LinkerOutputType"
+                Value="Executable"/>
+        </List>
+    </Config>
+    <Files>
+        <Folder
+            Name="Source Files"
+            Filters="*.c;*.C;*.cc;*.cpp;*.cp;*.cxx;*.c++;*.prg;*.pas;*.dpr;*.asm;*.s;*.bas;*.java;*.cs;*.sc;*.e;*.cob;*.html;*.rc;*.tcl;*.py;*.pl;*.d;*.m;*.mm;*.go"/>
+        <Folder
+            Name="Header Files"
+            Filters="*.h;*.H;*.hh;*.hpp;*.hxx;*.h++;*.inc;*.sh;*.cpy;*.if"/>
+        <Folder
+            Name="Resource Files"
+            Filters="*.ico;*.cur;*.dlg"/>
+        <Folder
+            Name="Bitmaps"
+            Filters="*.bmp"/>
+        <Folder
+            Name="Other Files"
+            Filters="">
+            <F N="arch/arm/configs/acs5k_defconfig"/>
+            <F N="arch/arm/configs/acs5k_tiny_defconfig"/>
+            <F N="arch/arm/configs/am200epdkit_defconfig"/>
+            <F N="arch/arm/configs/armadillo800eva_defconfig"/>
+            <F N="arch/arm/configs/assabet_defconfig"/>
+            <F N="arch/arm/configs/at91_dt_defconfig"/>
+            <F N="arch/arm/configs/axm55xx_defconfig"/>
+            <F N="arch/arm/configs/badge4_defconfig"/>
+            <F N="arch/arm/configs/bcm2835_defconfig"/>
+            <F N="arch/arm/configs/bcm_defconfig"/>
+            <F N="arch/arm/configs/bockw_defconfig"/>
+            <F N="arch/arm/configs/cerfcube_defconfig"/>
+            <F N="arch/arm/configs/clps711x_defconfig"/>
+            <F N="arch/arm/configs/cm_x2xx_defconfig"/>
+            <F N="arch/arm/configs/cm_x300_defconfig"/>
+            <F N="arch/arm/configs/cns3420vb_defconfig"/>
+            <F N="arch/arm/configs/colibri_pxa270_defconfig"/>
+            <F N="arch/arm/configs/colibri_pxa300_defconfig"/>
+            <F N="arch/arm/configs/collie_defconfig"/>
+            <F N="arch/arm/configs/corgi_defconfig"/>
+            <F N="arch/arm/configs/davinci_all_defconfig"/>
+            <F N="arch/arm/configs/dove_defconfig"/>
+            <F N="arch/arm/configs/ebsa110_defconfig"/>
+            <F N="arch/arm/configs/efm32_defconfig"/>
+            <F N="arch/arm/configs/em_x270_defconfig"/>
+            <F N="arch/arm/configs/ep93xx_defconfig"/>
+            <F N="arch/arm/configs/eseries_pxa_defconfig"/>
+            <F N="arch/arm/configs/exynos_defconfig"/>
+            <F N="arch/arm/configs/ezx_defconfig"/>
+            <F N="arch/arm/configs/footbridge_defconfig"/>
+            <F N="arch/arm/configs/h3600_defconfig"/>
+            <F N="arch/arm/configs/h5000_defconfig"/>
+            <F N="arch/arm/configs/hackkit_defconfig"/>
+            <F N="arch/arm/configs/hisi_defconfig"/>
+            <F N="arch/arm/configs/imote2_defconfig"/>
+            <F N="arch/arm/configs/imx6ul-var-dart_defconfig"/>
+            <F N="arch/arm/configs/imx7-var-som_defconfig"/>
+            <F N="arch/arm/configs/imx_v4_v5_defconfig"/>
+            <F N="arch/arm/configs/imx_v6_v7_defconfig"/>
+            <F N="arch/arm/configs/imx_v7_defconfig"/>
+            <F N="arch/arm/configs/imx_v7_mfg_defconfig"/>
+            <F N="arch/arm/configs/imx_v7_var_defconfig"/>
+            <F N="arch/arm/configs/integrator_defconfig"/>
+            <F N="arch/arm/configs/iop13xx_defconfig"/>
+            <F N="arch/arm/configs/iop32x_defconfig"/>
+            <F N="arch/arm/configs/iop33x_defconfig"/>
+            <F N="arch/arm/configs/ixp4xx_defconfig"/>
+            <F N="arch/arm/configs/jornada720_defconfig"/>
+            <F N="arch/arm/configs/keystone_defconfig"/>
+            <F N="arch/arm/configs/ks8695_defconfig"/>
+            <F N="arch/arm/configs/kzm9g_defconfig"/>
+            <F N="arch/arm/configs/lart_defconfig"/>
+            <F N="arch/arm/configs/lpc32xx_defconfig"/>
+            <F N="arch/arm/configs/lpd270_defconfig"/>
+            <F N="arch/arm/configs/lubbock_defconfig"/>
+            <F N="arch/arm/configs/magician_defconfig"/>
+            <F N="arch/arm/configs/mainstone_defconfig"/>
+            <F N="arch/arm/configs/marzen_defconfig"/>
+            <F N="arch/arm/configs/mini2440_defconfig"/>
+            <F N="arch/arm/configs/mmp2_defconfig"/>
+            <F N="arch/arm/configs/moxart_defconfig"/>
+            <F N="arch/arm/configs/multi_v5_defconfig"/>
+            <F N="arch/arm/configs/multi_v7_defconfig"/>
+            <F N="arch/arm/configs/mv78xx0_defconfig"/>
+            <F N="arch/arm/configs/mvebu_v5_defconfig"/>
+            <F N="arch/arm/configs/mvebu_v7_defconfig"/>
+            <F N="arch/arm/configs/mxs_defconfig"/>
+            <F N="arch/arm/configs/neponset_defconfig"/>
+            <F N="arch/arm/configs/netwinder_defconfig"/>
+            <F N="arch/arm/configs/netx_defconfig"/>
+            <F N="arch/arm/configs/nhk8815_defconfig"/>
+            <F N="arch/arm/configs/nuc910_defconfig"/>
+            <F N="arch/arm/configs/nuc950_defconfig"/>
+            <F N="arch/arm/configs/nuc960_defconfig"/>
+            <F N="arch/arm/configs/omap1_defconfig"/>
+            <F N="arch/arm/configs/omap2plus_defconfig"/>
+            <F N="arch/arm/configs/orion5x_defconfig"/>
+            <F N="arch/arm/configs/palmz72_defconfig"/>
+            <F N="arch/arm/configs/pcm027_defconfig"/>
+            <F N="arch/arm/configs/pleb_defconfig"/>
+            <F N="arch/arm/configs/prima2_defconfig"/>
+            <F N="arch/arm/configs/pxa168_defconfig"/>
+            <F N="arch/arm/configs/pxa255-idp_defconfig"/>
+            <F N="arch/arm/configs/pxa3xx_defconfig"/>
+            <F N="arch/arm/configs/pxa910_defconfig"/>
+            <F N="arch/arm/configs/qcom_defconfig"/>
+            <F N="arch/arm/configs/raumfeld_defconfig"/>
+            <F N="arch/arm/configs/realview-smp_defconfig"/>
+            <F N="arch/arm/configs/realview_defconfig"/>
+            <F N="arch/arm/configs/rpc_defconfig"/>
+            <F N="arch/arm/configs/s3c2410_defconfig"/>
+            <F N="arch/arm/configs/s3c6400_defconfig"/>
+            <F N="arch/arm/configs/s5pv210_defconfig"/>
+            <F N="arch/arm/configs/sama5_defconfig"/>
+            <F N="arch/arm/configs/shannon_defconfig"/>
+            <F N="arch/arm/configs/shmobile_defconfig"/>
+            <F N="arch/arm/configs/simpad_defconfig"/>
+            <F N="arch/arm/configs/socfpga_defconfig"/>
+            <F N="arch/arm/configs/spear13xx_defconfig"/>
+            <F N="arch/arm/configs/spear3xx_defconfig"/>
+            <F N="arch/arm/configs/spear6xx_defconfig"/>
+            <F N="arch/arm/configs/spitz_defconfig"/>
+            <F N="arch/arm/configs/sunxi_defconfig"/>
+            <F N="arch/arm/configs/tct_hammer_defconfig"/>
+            <F N="arch/arm/configs/tegra_defconfig"/>
+            <F N="arch/arm/configs/trizeps4_defconfig"/>
+            <F N="arch/arm/configs/u300_defconfig"/>
+            <F N="arch/arm/configs/u8500_defconfig"/>
+            <F N="arch/arm/configs/versatile_defconfig"/>
+            <F N="arch/arm/configs/vexpress_defconfig"/>
+            <F N="arch/arm/configs/viper_defconfig"/>
+            <F N="arch/arm/configs/vt8500_v6_v7_defconfig"/>
+            <F N="arch/arm/configs/xcep_defconfig"/>
+            <F N="arch/arm/configs/zeus_defconfig"/>
+        </Folder>
+    </Files>
+</Project>

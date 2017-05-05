@@ -1,0 +1,532 @@
+<!DOCTYPE Project SYSTEM "http://www.slickedit.com/dtd/vse/10.0/vpj.dtd">
+<Project
+    Version="10.0"
+    VendorName="SlickEdit"
+    TemplateName="GNU C/C++"
+    WorkingDir="."
+    BuildSystem="vsbuild">
+    <Config
+        Name="Debug"
+        Type="gnuc"
+        DebugCallbackName="gdb"
+        Version="1"
+        OutputFile="%bdimx6_dts"
+        CompilerConfigName="Latest Version">
+        <Menu>
+            <Target
+                Name="Compile"
+                MenuCaption="&amp;Compile"
+                Dialog="_gnuc_options_form Compile"
+                CaptureOutputWith="ProcessBuffer"
+                Deletable="0"
+                OutputExts="*.o"
+                SaveOption="SaveCurrent"
+                RunFromDir="%rw">
+                <Exec CmdLine='g++ -c %xup  %defd -g -o "%bd%n%oe" %i "%f"'/>
+            </Target>
+            <Target
+                Name="Link"
+                MenuCaption="&amp;Link"
+                ShowOnMenu="Never"
+                Dialog="_gnuc_options_form Link"
+                CaptureOutputWith="ProcessBuffer"
+                Deletable="0"
+                SaveOption="SaveCurrent"
+                RunFromDir="%rw">
+                <Exec CmdLine='g++ %xup -g -o "%o" %f %libs'/>
+            </Target>
+            <Target
+                Name="Build"
+                MenuCaption="&amp;Build"
+                Dialog="_gnuc_options_form Compile"
+                CaptureOutputWith="ProcessBuffer"
+                Deletable="0"
+                SaveOption="SaveWorkspaceFiles"
+                RunFromDir="%rw">
+                <Exec CmdLine='"%(VSLICKBIN1)vsbuild" "%w" "%r" -t build'/>
+            </Target>
+            <Target
+                Name="Rebuild"
+                MenuCaption="&amp;Rebuild"
+                Dialog="_gnuc_options_form Compile"
+                CaptureOutputWith="ProcessBuffer"
+                Deletable="0"
+                SaveOption="SaveWorkspaceFiles"
+                RunFromDir="%rw">
+                <Exec CmdLine='"%(VSLICKBIN1)vsbuild" "%w" "%r" -t rebuild'/>
+            </Target>
+            <Target
+                Name="Debug"
+                MenuCaption="&amp;Debug"
+                Dialog="_gnuc_options_form Run/Debug"
+                BuildFirst="1"
+                CaptureOutputWith="ProcessBuffer"
+                Deletable="0"
+                SaveOption="SaveNone"
+                RunFromDir="%rw">
+                <Exec CmdLine='vsdebugio -prog "%o"'/>
+            </Target>
+            <Target
+                Name="Execute"
+                MenuCaption="E&amp;xecute"
+                Dialog="_gnuc_options_form Run/Debug"
+                BuildFirst="1"
+                CaptureOutputWith="ProcessBuffer"
+                Deletable="0"
+                SaveOption="SaveWorkspaceFiles"
+                RunFromDir="%rw">
+                <Exec CmdLine='"%o"'/>
+            </Target>
+            <Target
+                Name="dash"
+                MenuCaption="-"
+                Deletable="0">
+                <Exec/>
+            </Target>
+            <Target
+                Name="GNU C Options"
+                MenuCaption="GNU C &amp;Options..."
+                ShowOnMenu="HideIfNoCmdLine"
+                Deletable="0"
+                SaveOption="SaveNone">
+                <Exec
+                    CmdLine="gnucoptions"
+                    Type="Slick-C"/>
+            </Target>
+        </Menu>
+        <List Name="GNUC Options">
+            <Item
+                Name="LinkerOutputType"
+                Value="Executable"/>
+        </List>
+    </Config>
+    <Config
+        Name="Release"
+        Type="gnuc"
+        DebugCallbackName="gdb"
+        Version="1"
+        OutputFile="%bdimx6_dts"
+        CompilerConfigName="Latest Version">
+        <Menu>
+            <Target
+                Name="Compile"
+                MenuCaption="&amp;Compile"
+                Dialog="_gnuc_options_form Compile"
+                CaptureOutputWith="ProcessBuffer"
+                Deletable="0"
+                OutputExts="*.o"
+                SaveOption="SaveCurrent"
+                RunFromDir="%rw">
+                <Exec CmdLine='g++ -c %xup %defd -o "%bd%n%oe" %i "%f"'/>
+            </Target>
+            <Target
+                Name="Link"
+                MenuCaption="&amp;Link"
+                ShowOnMenu="Never"
+                Dialog="_gnuc_options_form Link"
+                CaptureOutputWith="ProcessBuffer"
+                Deletable="0"
+                SaveOption="SaveCurrent"
+                RunFromDir="%rw">
+                <Exec CmdLine='g++ %xup -o "%o" %f %libs'/>
+            </Target>
+            <Target
+                Name="Build"
+                MenuCaption="&amp;Build"
+                Dialog="_gnuc_options_form Compile"
+                CaptureOutputWith="ProcessBuffer"
+                Deletable="0"
+                SaveOption="SaveWorkspaceFiles"
+                RunFromDir="%rw">
+                <Exec CmdLine='"%(VSLICKBIN1)vsbuild" "%w" "%r" -t build'/>
+            </Target>
+            <Target
+                Name="Rebuild"
+                MenuCaption="&amp;Rebuild"
+                Dialog="_gnuc_options_form Compile"
+                CaptureOutputWith="ProcessBuffer"
+                Deletable="0"
+                SaveOption="SaveWorkspaceFiles"
+                RunFromDir="%rw">
+                <Exec CmdLine='"%(VSLICKBIN1)vsbuild" "%w" "%r" -t rebuild'/>
+            </Target>
+            <Target
+                Name="Debug"
+                MenuCaption="&amp;Debug"
+                Dialog="_gnuc_options_form Run/Debug"
+                BuildFirst="1"
+                CaptureOutputWith="ProcessBuffer"
+                Deletable="0"
+                SaveOption="SaveNone"
+                RunFromDir="%rw">
+                <Exec CmdLine='vsdebugio -prog "%o"'/>
+            </Target>
+            <Target
+                Name="Execute"
+                MenuCaption="E&amp;xecute"
+                Dialog="_gnuc_options_form Run/Debug"
+                BuildFirst="1"
+                CaptureOutputWith="ProcessBuffer"
+                Deletable="0"
+                SaveOption="SaveWorkspaceFiles"
+                RunFromDir="%rw">
+                <Exec CmdLine='"%o"'/>
+            </Target>
+            <Target
+                Name="dash"
+                MenuCaption="-"
+                Deletable="0">
+                <Exec/>
+            </Target>
+            <Target
+                Name="GNU C Options"
+                MenuCaption="GNU C &amp;Options..."
+                ShowOnMenu="HideIfNoCmdLine"
+                Deletable="0"
+                SaveOption="SaveNone">
+                <Exec
+                    CmdLine="gnucoptions"
+                    Type="Slick-C"/>
+            </Target>
+        </Menu>
+        <List Name="GNUC Options">
+            <Item
+                Name="LinkerOutputType"
+                Value="Executable"/>
+        </List>
+    </Config>
+    <Files>
+        <Folder
+            Name="Source Files"
+            Filters="*.c;*.C;*.cc;*.cpp;*.cp;*.cxx;*.c++;*.prg;*.pas;*.dpr;*.asm;*.s;*.bas;*.java;*.cs;*.sc;*.e;*.cob;*.html;*.rc;*.tcl;*.py;*.pl;*.d;*.m;*.mm;*.go"/>
+        <Folder
+            Name="Header Files"
+            Filters="*.h;*.H;*.hh;*.hpp;*.hxx;*.h++;*.inc;*.sh;*.cpy;*.if">
+            <F N="arch/arm/boot/dts/imx6dl-pinfunc.h"/>
+            <F N="arch/arm/boot/dts/imx6q-pinfunc.h"/>
+            <F N="arch/arm/boot/dts/imx6sl-pinfunc.h"/>
+            <F N="arch/arm/boot/dts/imx6sx-pinfunc.h"/>
+            <F N="arch/arm/boot/dts/imx6ul-pinfunc.h"/>
+        </Folder>
+        <Folder
+            Name="Resource Files"
+            Filters="*.ico;*.cur;*.dlg"/>
+        <Folder
+            Name="Bitmaps"
+            Filters="*.bmp"/>
+        <Folder
+            Name="Other Files"
+            Filters="">
+            <F N="arch/arm/boot/dts/imx6dl-aristainetos_4.dtb"/>
+            <F N="arch/arm/boot/dts/imx6dl-aristainetos_4.dts"/>
+            <F N="arch/arm/boot/dts/imx6dl-aristainetos_7.dtb"/>
+            <F N="arch/arm/boot/dts/imx6dl-aristainetos_7.dts"/>
+            <F N="arch/arm/boot/dts/imx6dl-cubox-i.dtb"/>
+            <F N="arch/arm/boot/dts/imx6dl-cubox-i.dts"/>
+            <F N="arch/arm/boot/dts/imx6dl-dfi-fs700-m60.dtb"/>
+            <F N="arch/arm/boot/dts/imx6dl-dfi-fs700-m60.dts"/>
+            <F N="arch/arm/boot/dts/imx6dl-gw51xx.dtb"/>
+            <F N="arch/arm/boot/dts/imx6dl-gw51xx.dts"/>
+            <F N="arch/arm/boot/dts/imx6dl-gw52xx.dtb"/>
+            <F N="arch/arm/boot/dts/imx6dl-gw52xx.dts"/>
+            <F N="arch/arm/boot/dts/imx6dl-gw53xx.dtb"/>
+            <F N="arch/arm/boot/dts/imx6dl-gw53xx.dts"/>
+            <F N="arch/arm/boot/dts/imx6dl-gw54xx.dtb"/>
+            <F N="arch/arm/boot/dts/imx6dl-gw54xx.dts"/>
+            <F N="arch/arm/boot/dts/imx6dl-gw552x.dtb"/>
+            <F N="arch/arm/boot/dts/imx6dl-gw552x.dts"/>
+            <F N="arch/arm/boot/dts/imx6dl-hummingboard.dtb"/>
+            <F N="arch/arm/boot/dts/imx6dl-hummingboard.dts"/>
+            <F N="arch/arm/boot/dts/imx6dl-nitrogen6x.dtb"/>
+            <F N="arch/arm/boot/dts/imx6dl-nitrogen6x.dts"/>
+            <F N="arch/arm/boot/dts/imx6dl-phytec-pbab01.dtb"/>
+            <F N="arch/arm/boot/dts/imx6dl-phytec-pbab01.dts"/>
+            <F N="arch/arm/boot/dts/imx6dl-phytec-pfla02.dtsi"/>
+            <F N="arch/arm/boot/dts/imx6dl-rex-basic.dtb"/>
+            <F N="arch/arm/boot/dts/imx6dl-rex-basic.dts"/>
+            <F N="arch/arm/boot/dts/imx6dl-riotboard.dtb"/>
+            <F N="arch/arm/boot/dts/imx6dl-riotboard.dts"/>
+            <F N="arch/arm/boot/dts/imx6dl-sabreauto-ecspi.dtb"/>
+            <F N="arch/arm/boot/dts/imx6dl-sabreauto-ecspi.dts"/>
+            <F N="arch/arm/boot/dts/imx6dl-sabreauto-enetirq.dtb"/>
+            <F N="arch/arm/boot/dts/imx6dl-sabreauto-enetirq.dts"/>
+            <F N="arch/arm/boot/dts/imx6dl-sabreauto-flexcan1.dtb"/>
+            <F N="arch/arm/boot/dts/imx6dl-sabreauto-flexcan1.dts"/>
+            <F N="arch/arm/boot/dts/imx6dl-sabreauto-gpmi-weim.dtb"/>
+            <F N="arch/arm/boot/dts/imx6dl-sabreauto-gpmi-weim.dts"/>
+            <F N="arch/arm/boot/dts/imx6dl-sabreauto.dtb"/>
+            <F N="arch/arm/boot/dts/imx6dl-sabreauto.dts"/>
+            <F N="arch/arm/boot/dts/imx6dl-sabrelite.dtb"/>
+            <F N="arch/arm/boot/dts/imx6dl-sabrelite.dts"/>
+            <F N="arch/arm/boot/dts/imx6dl-sabresd-btwifi.dtb"/>
+            <F N="arch/arm/boot/dts/imx6dl-sabresd-btwifi.dts"/>
+            <F N="arch/arm/boot/dts/imx6dl-sabresd-enetirq.dtb"/>
+            <F N="arch/arm/boot/dts/imx6dl-sabresd-enetirq.dts"/>
+            <F N="arch/arm/boot/dts/imx6dl-sabresd-hdcp.dtb"/>
+            <F N="arch/arm/boot/dts/imx6dl-sabresd-hdcp.dts"/>
+            <F N="arch/arm/boot/dts/imx6dl-sabresd-ldo.dtb"/>
+            <F N="arch/arm/boot/dts/imx6dl-sabresd-ldo.dts"/>
+            <F N="arch/arm/boot/dts/imx6dl-sabresd.dtb"/>
+            <F N="arch/arm/boot/dts/imx6dl-sabresd.dts"/>
+            <F N="arch/arm/boot/dts/imx6dl-tx6dl-comtft.dtb"/>
+            <F N="arch/arm/boot/dts/imx6dl-tx6dl-comtft.dts"/>
+            <F N="arch/arm/boot/dts/imx6dl-tx6u-801x.dtb"/>
+            <F N="arch/arm/boot/dts/imx6dl-tx6u-801x.dts"/>
+            <F N="arch/arm/boot/dts/imx6dl-tx6u-811x.dtb"/>
+            <F N="arch/arm/boot/dts/imx6dl-tx6u-811x.dts"/>
+            <F N="arch/arm/boot/dts/imx6dl-udoo.dtb"/>
+            <F N="arch/arm/boot/dts/imx6dl-udoo.dts"/>
+            <F N="arch/arm/boot/dts/imx6dl-var-som-cap.dtb"/>
+            <F N="arch/arm/boot/dts/imx6dl-var-som-cap.dts"/>
+            <F N="arch/arm/boot/dts/imx6dl-var-som-res.dtb"/>
+            <F N="arch/arm/boot/dts/imx6dl-var-som-res.dts"/>
+            <F N="arch/arm/boot/dts/imx6dl-var-som-solo-cap.dtb"/>
+            <F N="arch/arm/boot/dts/imx6dl-var-som-solo-cap.dts"/>
+            <F N="arch/arm/boot/dts/imx6dl-var-som-solo-res.dtb"/>
+            <F N="arch/arm/boot/dts/imx6dl-var-som-solo-res.dts"/>
+            <F N="arch/arm/boot/dts/imx6dl-var-som-solo-vsc.dtb"/>
+            <F N="arch/arm/boot/dts/imx6dl-var-som-solo-vsc.dts"/>
+            <F N="arch/arm/boot/dts/imx6dl-var-som-solo.dtsi"/>
+            <F N="arch/arm/boot/dts/imx6dl-var-som-vsc.dtb"/>
+            <F N="arch/arm/boot/dts/imx6dl-var-som-vsc.dts"/>
+            <F N="arch/arm/boot/dts/imx6dl-var-som.dtsi"/>
+            <F N="arch/arm/boot/dts/imx6dl-wandboard-revb1.dtb"/>
+            <F N="arch/arm/boot/dts/imx6dl-wandboard-revb1.dts"/>
+            <F N="arch/arm/boot/dts/imx6dl-wandboard.dtb"/>
+            <F N="arch/arm/boot/dts/imx6dl-wandboard.dts"/>
+            <F N="arch/arm/boot/dts/imx6dl.dtsi"/>
+            <F N="arch/arm/boot/dts/imx6q-arm2-hsic.dtb"/>
+            <F N="arch/arm/boot/dts/imx6q-arm2-hsic.dts"/>
+            <F N="arch/arm/boot/dts/imx6q-arm2.dtb"/>
+            <F N="arch/arm/boot/dts/imx6q-arm2.dts"/>
+            <F N="arch/arm/boot/dts/imx6q-cm-fx6.dtb"/>
+            <F N="arch/arm/boot/dts/imx6q-cm-fx6.dts"/>
+            <F N="arch/arm/boot/dts/imx6q-cubox-i.dtb"/>
+            <F N="arch/arm/boot/dts/imx6q-cubox-i.dts"/>
+            <F N="arch/arm/boot/dts/imx6q-dfi-fs700-m60.dtb"/>
+            <F N="arch/arm/boot/dts/imx6q-dfi-fs700-m60.dts"/>
+            <F N="arch/arm/boot/dts/imx6q-dmo-edmqmx6.dtb"/>
+            <F N="arch/arm/boot/dts/imx6q-dmo-edmqmx6.dts"/>
+            <F N="arch/arm/boot/dts/imx6q-gk802.dtb"/>
+            <F N="arch/arm/boot/dts/imx6q-gk802.dts"/>
+            <F N="arch/arm/boot/dts/imx6q-gw51xx.dtb"/>
+            <F N="arch/arm/boot/dts/imx6q-gw51xx.dts"/>
+            <F N="arch/arm/boot/dts/imx6q-gw52xx.dtb"/>
+            <F N="arch/arm/boot/dts/imx6q-gw52xx.dts"/>
+            <F N="arch/arm/boot/dts/imx6q-gw53xx.dtb"/>
+            <F N="arch/arm/boot/dts/imx6q-gw53xx.dts"/>
+            <F N="arch/arm/boot/dts/imx6q-gw5400-a.dtb"/>
+            <F N="arch/arm/boot/dts/imx6q-gw5400-a.dts"/>
+            <F N="arch/arm/boot/dts/imx6q-gw54xx.dtb"/>
+            <F N="arch/arm/boot/dts/imx6q-gw54xx.dts"/>
+            <F N="arch/arm/boot/dts/imx6q-gw552x.dtb"/>
+            <F N="arch/arm/boot/dts/imx6q-gw552x.dts"/>
+            <F N="arch/arm/boot/dts/imx6q-hummingboard.dtb"/>
+            <F N="arch/arm/boot/dts/imx6q-hummingboard.dts"/>
+            <F N="arch/arm/boot/dts/imx6q-nitrogen6x.dtb"/>
+            <F N="arch/arm/boot/dts/imx6q-nitrogen6x.dts"/>
+            <F N="arch/arm/boot/dts/imx6q-phytec-pbab01.dtb"/>
+            <F N="arch/arm/boot/dts/imx6q-phytec-pbab01.dts"/>
+            <F N="arch/arm/boot/dts/imx6q-phytec-pfla02.dtsi"/>
+            <F N="arch/arm/boot/dts/imx6q-pop-arm2.dtb"/>
+            <F N="arch/arm/boot/dts/imx6q-pop-arm2.dts"/>
+            <F N="arch/arm/boot/dts/imx6q-rex-pro.dtb"/>
+            <F N="arch/arm/boot/dts/imx6q-rex-pro.dts"/>
+            <F N="arch/arm/boot/dts/imx6q-sabreauto-ecspi.dtb"/>
+            <F N="arch/arm/boot/dts/imx6q-sabreauto-ecspi.dts"/>
+            <F N="arch/arm/boot/dts/imx6q-sabreauto-enetirq.dtb"/>
+            <F N="arch/arm/boot/dts/imx6q-sabreauto-enetirq.dts"/>
+            <F N="arch/arm/boot/dts/imx6q-sabreauto-flexcan1.dtb"/>
+            <F N="arch/arm/boot/dts/imx6q-sabreauto-flexcan1.dts"/>
+            <F N="arch/arm/boot/dts/imx6q-sabreauto-gpmi-weim.dtb"/>
+            <F N="arch/arm/boot/dts/imx6q-sabreauto-gpmi-weim.dts"/>
+            <F N="arch/arm/boot/dts/imx6q-sabreauto.dtb"/>
+            <F N="arch/arm/boot/dts/imx6q-sabreauto.dts"/>
+            <F N="arch/arm/boot/dts/imx6q-sabrelite.dtb"/>
+            <F N="arch/arm/boot/dts/imx6q-sabrelite.dts"/>
+            <F N="arch/arm/boot/dts/imx6q-sabresd-btwifi.dtb"/>
+            <F N="arch/arm/boot/dts/imx6q-sabresd-btwifi.dts"/>
+            <F N="arch/arm/boot/dts/imx6q-sabresd-enetirq.dtb"/>
+            <F N="arch/arm/boot/dts/imx6q-sabresd-enetirq.dts"/>
+            <F N="arch/arm/boot/dts/imx6q-sabresd-hdcp.dtb"/>
+            <F N="arch/arm/boot/dts/imx6q-sabresd-hdcp.dts"/>
+            <F N="arch/arm/boot/dts/imx6q-sabresd-ldo.dtb"/>
+            <F N="arch/arm/boot/dts/imx6q-sabresd-ldo.dts"/>
+            <F N="arch/arm/boot/dts/imx6q-sabresd.dtb"/>
+            <F N="arch/arm/boot/dts/imx6q-sabresd.dts"/>
+            <F N="arch/arm/boot/dts/imx6q-sbc6x.dtb"/>
+            <F N="arch/arm/boot/dts/imx6q-sbc6x.dts"/>
+            <F N="arch/arm/boot/dts/imx6q-tbs2910.dtb"/>
+            <F N="arch/arm/boot/dts/imx6q-tbs2910.dts"/>
+            <F N="arch/arm/boot/dts/imx6q-tx6q-1010-comtft.dtb"/>
+            <F N="arch/arm/boot/dts/imx6q-tx6q-1010-comtft.dts"/>
+            <F N="arch/arm/boot/dts/imx6q-tx6q-1010.dtb"/>
+            <F N="arch/arm/boot/dts/imx6q-tx6q-1010.dts"/>
+            <F N="arch/arm/boot/dts/imx6q-tx6q-1020-comtft.dtb"/>
+            <F N="arch/arm/boot/dts/imx6q-tx6q-1020-comtft.dts"/>
+            <F N="arch/arm/boot/dts/imx6q-tx6q-1020.dtb"/>
+            <F N="arch/arm/boot/dts/imx6q-tx6q-1020.dts"/>
+            <F N="arch/arm/boot/dts/imx6q-tx6q-1110.dtb"/>
+            <F N="arch/arm/boot/dts/imx6q-tx6q-1110.dts"/>
+            <F N="arch/arm/boot/dts/imx6q-udoo.dtb"/>
+            <F N="arch/arm/boot/dts/imx6q-udoo.dts"/>
+            <F N="arch/arm/boot/dts/imx6q-var-dart-flir.dtb"/>
+            <F N="arch/arm/boot/dts/imx6q-var-dart-flir.dts"/>
+            <F N="arch/arm/boot/dts/imx6q-var-dart.dtb"/>
+            <F N="arch/arm/boot/dts/imx6q-var-dart.dts"/>
+            <F N="arch/arm/boot/dts/imx6q-var-som-cap.dtb"/>
+            <F N="arch/arm/boot/dts/imx6q-var-som-cap.dts"/>
+            <F N="arch/arm/boot/dts/imx6q-var-som-res.dtb"/>
+            <F N="arch/arm/boot/dts/imx6q-var-som-res.dts"/>
+            <F N="arch/arm/boot/dts/imx6q-var-som-vsc.dtb"/>
+            <F N="arch/arm/boot/dts/imx6q-var-som-vsc.dts"/>
+            <F N="arch/arm/boot/dts/imx6q-var-som.dtsi"/>
+            <F N="arch/arm/boot/dts/imx6q-wandboard-revb1.dtb"/>
+            <F N="arch/arm/boot/dts/imx6q-wandboard-revb1.dts"/>
+            <F N="arch/arm/boot/dts/imx6q-wandboard.dtb"/>
+            <F N="arch/arm/boot/dts/imx6q-wandboard.dts"/>
+            <F N="arch/arm/boot/dts/imx6q.dtsi"/>
+            <F N="arch/arm/boot/dts/imx6qdl-aristainetos.dtsi"/>
+            <F N="arch/arm/boot/dts/imx6qdl-cubox-i.dtsi"/>
+            <F N="arch/arm/boot/dts/imx6qdl-dfi-fs700-m60.dtsi"/>
+            <F N="arch/arm/boot/dts/imx6qdl-gw51xx.dtsi"/>
+            <F N="arch/arm/boot/dts/imx6qdl-gw52xx.dtsi"/>
+            <F N="arch/arm/boot/dts/imx6qdl-gw53xx.dtsi"/>
+            <F N="arch/arm/boot/dts/imx6qdl-gw54xx.dtsi"/>
+            <F N="arch/arm/boot/dts/imx6qdl-gw552x.dtsi"/>
+            <F N="arch/arm/boot/dts/imx6qdl-hummingboard.dtsi"/>
+            <F N="arch/arm/boot/dts/imx6qdl-microsom-ar8035.dtsi"/>
+            <F N="arch/arm/boot/dts/imx6qdl-microsom.dtsi"/>
+            <F N="arch/arm/boot/dts/imx6qdl-nitrogen6x.dtsi"/>
+            <F N="arch/arm/boot/dts/imx6qdl-phytec-pbab01.dtsi"/>
+            <F N="arch/arm/boot/dts/imx6qdl-phytec-pfla02.dtsi"/>
+            <F N="arch/arm/boot/dts/imx6qdl-rex.dtsi"/>
+            <F N="arch/arm/boot/dts/imx6qdl-sabreauto.dtsi"/>
+            <F N="arch/arm/boot/dts/imx6qdl-sabrelite.dtsi"/>
+            <F N="arch/arm/boot/dts/imx6qdl-sabresd-btwifi.dtsi"/>
+            <F N="arch/arm/boot/dts/imx6qdl-sabresd.dtsi"/>
+            <F N="arch/arm/boot/dts/imx6qdl-tx6.dtsi"/>
+            <F N="arch/arm/boot/dts/imx6qdl-udoo.dtsi"/>
+            <F N="arch/arm/boot/dts/imx6qdl-var-dart-flir.dtsi"/>
+            <F N="arch/arm/boot/dts/imx6qdl-var-dart.dtsi"/>
+            <F N="arch/arm/boot/dts/imx6qdl-var-displays-flir.dtsi"/>
+            <F N="arch/arm/boot/dts/imx6qdl-var-mx6cb-cdisplay.dtsi"/>
+            <F N="arch/arm/boot/dts/imx6qdl-var-mx6cb-rdisplay.dtsi"/>
+            <F N="arch/arm/boot/dts/imx6qdl-var-solocb-dt6cb-displays.dtsi"/>
+            <F N="arch/arm/boot/dts/imx6qdl-var-som.dtsi"/>
+            <F N="arch/arm/boot/dts/imx6qdl-wandboard-revb1.dtsi"/>
+            <F N="arch/arm/boot/dts/imx6qdl-wandboard-revc1.dtsi"/>
+            <F N="arch/arm/boot/dts/imx6qdl-wandboard.dtsi"/>
+            <F N="arch/arm/boot/dts/imx6qdl.dtsi"/>
+            <F N="arch/arm/boot/dts/imx6qp-sabreauto-ecspi.dtb"/>
+            <F N="arch/arm/boot/dts/imx6qp-sabreauto-ecspi.dts"/>
+            <F N="arch/arm/boot/dts/imx6qp-sabreauto-flexcan1.dtb"/>
+            <F N="arch/arm/boot/dts/imx6qp-sabreauto-flexcan1.dts"/>
+            <F N="arch/arm/boot/dts/imx6qp-sabreauto-gpmi-weim.dtb"/>
+            <F N="arch/arm/boot/dts/imx6qp-sabreauto-gpmi-weim.dts"/>
+            <F N="arch/arm/boot/dts/imx6qp-sabreauto.dtb"/>
+            <F N="arch/arm/boot/dts/imx6qp-sabreauto.dts"/>
+            <F N="arch/arm/boot/dts/imx6qp-sabresd-btwifi.dtb"/>
+            <F N="arch/arm/boot/dts/imx6qp-sabresd-btwifi.dts"/>
+            <F N="arch/arm/boot/dts/imx6qp-sabresd-hdcp.dtb"/>
+            <F N="arch/arm/boot/dts/imx6qp-sabresd-hdcp.dts"/>
+            <F N="arch/arm/boot/dts/imx6qp-sabresd-ldo.dtb"/>
+            <F N="arch/arm/boot/dts/imx6qp-sabresd-ldo.dts"/>
+            <F N="arch/arm/boot/dts/imx6qp-sabresd.dtb"/>
+            <F N="arch/arm/boot/dts/imx6qp-sabresd.dts"/>
+            <F N="arch/arm/boot/dts/imx6qp.dtsi"/>
+            <F N="arch/arm/boot/dts/imx6sl-evk-btwifi.dtb"/>
+            <F N="arch/arm/boot/dts/imx6sl-evk-btwifi.dts"/>
+            <F N="arch/arm/boot/dts/imx6sl-evk-csi.dtb"/>
+            <F N="arch/arm/boot/dts/imx6sl-evk-csi.dts"/>
+            <F N="arch/arm/boot/dts/imx6sl-evk-ldo.dtb"/>
+            <F N="arch/arm/boot/dts/imx6sl-evk-ldo.dts"/>
+            <F N="arch/arm/boot/dts/imx6sl-evk-uart.dtb"/>
+            <F N="arch/arm/boot/dts/imx6sl-evk-uart.dts"/>
+            <F N="arch/arm/boot/dts/imx6sl-evk.dtb"/>
+            <F N="arch/arm/boot/dts/imx6sl-evk.dts"/>
+            <F N="arch/arm/boot/dts/imx6sl-warp.dtb"/>
+            <F N="arch/arm/boot/dts/imx6sl-warp.dts"/>
+            <F N="arch/arm/boot/dts/imx6sl.dtsi"/>
+            <F N="arch/arm/boot/dts/imx6sx-14x14-arm2.dtb"/>
+            <F N="arch/arm/boot/dts/imx6sx-14x14-arm2.dts"/>
+            <F N="arch/arm/boot/dts/imx6sx-19x19-arm2-csi.dtb"/>
+            <F N="arch/arm/boot/dts/imx6sx-19x19-arm2-csi.dts"/>
+            <F N="arch/arm/boot/dts/imx6sx-19x19-arm2-gpmi-weim.dtb"/>
+            <F N="arch/arm/boot/dts/imx6sx-19x19-arm2-gpmi-weim.dts"/>
+            <F N="arch/arm/boot/dts/imx6sx-19x19-arm2-ldo.dtb"/>
+            <F N="arch/arm/boot/dts/imx6sx-19x19-arm2-ldo.dts"/>
+            <F N="arch/arm/boot/dts/imx6sx-19x19-arm2.dtb"/>
+            <F N="arch/arm/boot/dts/imx6sx-19x19-arm2.dts"/>
+            <F N="arch/arm/boot/dts/imx6sx-sabreauto-m4.dtb"/>
+            <F N="arch/arm/boot/dts/imx6sx-sabreauto-m4.dts"/>
+            <F N="arch/arm/boot/dts/imx6sx-sabreauto.dtb"/>
+            <F N="arch/arm/boot/dts/imx6sx-sabreauto.dts"/>
+            <F N="arch/arm/boot/dts/imx6sx-sdb-btwifi.dtb"/>
+            <F N="arch/arm/boot/dts/imx6sx-sdb-btwifi.dts"/>
+            <F N="arch/arm/boot/dts/imx6sx-sdb-emmc.dtb"/>
+            <F N="arch/arm/boot/dts/imx6sx-sdb-emmc.dts"/>
+            <F N="arch/arm/boot/dts/imx6sx-sdb-lcdif1.dtb"/>
+            <F N="arch/arm/boot/dts/imx6sx-sdb-lcdif1.dts"/>
+            <F N="arch/arm/boot/dts/imx6sx-sdb-ldo.dtb"/>
+            <F N="arch/arm/boot/dts/imx6sx-sdb-ldo.dts"/>
+            <F N="arch/arm/boot/dts/imx6sx-sdb-m4.dtb"/>
+            <F N="arch/arm/boot/dts/imx6sx-sdb-m4.dts"/>
+            <F N="arch/arm/boot/dts/imx6sx-sdb-mqs.dtb"/>
+            <F N="arch/arm/boot/dts/imx6sx-sdb-mqs.dts"/>
+            <F N="arch/arm/boot/dts/imx6sx-sdb-reva-ldo.dtb"/>
+            <F N="arch/arm/boot/dts/imx6sx-sdb-reva-ldo.dts"/>
+            <F N="arch/arm/boot/dts/imx6sx-sdb-reva.dtb"/>
+            <F N="arch/arm/boot/dts/imx6sx-sdb-reva.dts"/>
+            <F N="arch/arm/boot/dts/imx6sx-sdb-sai.dtb"/>
+            <F N="arch/arm/boot/dts/imx6sx-sdb-sai.dts"/>
+            <F N="arch/arm/boot/dts/imx6sx-sdb.dtb"/>
+            <F N="arch/arm/boot/dts/imx6sx-sdb.dts"/>
+            <F N="arch/arm/boot/dts/imx6sx-sdb.dtsi"/>
+            <F N="arch/arm/boot/dts/imx6sx.dtsi"/>
+            <F N="arch/arm/boot/dts/imx6ul-14x14-ddr3-arm2-emmc.dtb"/>
+            <F N="arch/arm/boot/dts/imx6ul-14x14-ddr3-arm2-emmc.dts"/>
+            <F N="arch/arm/boot/dts/imx6ul-14x14-ddr3-arm2-flexcan2.dtb"/>
+            <F N="arch/arm/boot/dts/imx6ul-14x14-ddr3-arm2-flexcan2.dts"/>
+            <F N="arch/arm/boot/dts/imx6ul-14x14-ddr3-arm2-gpmi-weim.dtb"/>
+            <F N="arch/arm/boot/dts/imx6ul-14x14-ddr3-arm2-gpmi-weim.dts"/>
+            <F N="arch/arm/boot/dts/imx6ul-14x14-ddr3-arm2-mqs.dtb"/>
+            <F N="arch/arm/boot/dts/imx6ul-14x14-ddr3-arm2-mqs.dts"/>
+            <F N="arch/arm/boot/dts/imx6ul-14x14-ddr3-arm2-spdif.dtb"/>
+            <F N="arch/arm/boot/dts/imx6ul-14x14-ddr3-arm2-spdif.dts"/>
+            <F N="arch/arm/boot/dts/imx6ul-14x14-ddr3-arm2-wm8958.dtb"/>
+            <F N="arch/arm/boot/dts/imx6ul-14x14-ddr3-arm2-wm8958.dts"/>
+            <F N="arch/arm/boot/dts/imx6ul-14x14-ddr3-arm2.dtb"/>
+            <F N="arch/arm/boot/dts/imx6ul-14x14-ddr3-arm2.dts"/>
+            <F N="arch/arm/boot/dts/imx6ul-14x14-evk-btwifi.dtb"/>
+            <F N="arch/arm/boot/dts/imx6ul-14x14-evk-btwifi.dts"/>
+            <F N="arch/arm/boot/dts/imx6ul-14x14-evk-csi.dtb"/>
+            <F N="arch/arm/boot/dts/imx6ul-14x14-evk-csi.dts"/>
+            <F N="arch/arm/boot/dts/imx6ul-14x14-evk-usb-certi.dtb"/>
+            <F N="arch/arm/boot/dts/imx6ul-14x14-evk-usb-certi.dts"/>
+            <F N="arch/arm/boot/dts/imx6ul-14x14-evk.dtb"/>
+            <F N="arch/arm/boot/dts/imx6ul-14x14-evk.dts"/>
+            <F N="arch/arm/boot/dts/imx6ul-14x14-lpddr2-arm2.dtb"/>
+            <F N="arch/arm/boot/dts/imx6ul-14x14-lpddr2-arm2.dts"/>
+            <F N="arch/arm/boot/dts/imx6ul-9x9-evk-btwifi.dtb"/>
+            <F N="arch/arm/boot/dts/imx6ul-9x9-evk-btwifi.dts"/>
+            <F N="arch/arm/boot/dts/imx6ul-9x9-evk-csi.dtb"/>
+            <F N="arch/arm/boot/dts/imx6ul-9x9-evk-csi.dts"/>
+            <F N="arch/arm/boot/dts/imx6ul-9x9-evk-ldo.dtb"/>
+            <F N="arch/arm/boot/dts/imx6ul-9x9-evk-ldo.dts"/>
+            <F N="arch/arm/boot/dts/imx6ul-9x9-evk.dtb"/>
+            <F N="arch/arm/boot/dts/imx6ul-9x9-evk.dts"/>
+            <F N="arch/arm/boot/dts/imx6ul-evk-btwifi.dtsi"/>
+            <F N="arch/arm/boot/dts/imx6ul-var-dart-emmc_wifi.dtb"/>
+            <F N="arch/arm/boot/dts/imx6ul-var-dart-emmc_wifi.dts"/>
+            <F N="arch/arm/boot/dts/imx6ul-var-dart-nand_wifi.dtb"/>
+            <F N="arch/arm/boot/dts/imx6ul-var-dart-nand_wifi.dts"/>
+            <F N="arch/arm/boot/dts/imx6ul-var-dart-sd_emmc.dtb"/>
+            <F N="arch/arm/boot/dts/imx6ul-var-dart-sd_emmc.dts"/>
+            <F N="arch/arm/boot/dts/imx6ul-var-dart-sd_nand.dtb"/>
+            <F N="arch/arm/boot/dts/imx6ul-var-dart-sd_nand.dts"/>
+            <F N="arch/arm/boot/dts/imx6ul-var-dart.dtsi"/>
+            <F N="arch/arm/boot/dts/imx6ul.dtsi"/>
+        </Folder>
+    </Files>
+</Project>

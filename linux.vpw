@@ -2,8 +2,13 @@
 <Workspace Version="10.0" VendorName="SlickEdit">
 	<Projects>
 		<Project File="arch.vpj"/>
+		<Project File="arm_configs.vpj"/>
 		<Project File="doc.vpj"/>
 		<Project File="drivers.vpj"/>
+		<Project File="drivers_video.vpj"/>
+		<Project File="imx6_dts.vpj"/>
+		<Project File="include.vpj"/>
 		<Project File="kernel.vpj"/>
+		<Project File="misc.vpj"/>
 	</Projects>
 </Workspace>
