@@ -6,6 +6,8 @@
 		<Project File="doc.vpj"/>
 		<Project File="drivers.vpj"/>
 		<Project File="drivers_video.vpj"/>
+		<Project File="flir_dts.vpj"/>
+		<Project File="gpu_drm.vpj"/>
 		<Project File="imx6_dts.vpj"/>
 		<Project File="include.vpj"/>
 		<Project File="kernel.vpj"/>

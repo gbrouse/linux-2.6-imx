@@ -10,7 +10,7 @@
         Type="gnuc"
         DebugCallbackName="gdb"
         Version="1"
-        OutputFile="%bdmisc"
+        OutputFile="%bdflir_dts"
         CompilerConfigName="Latest Version">
         <Menu>
             <Target
@@ -105,7 +105,7 @@
         Type="gnuc"
         DebugCallbackName="gdb"
         Version="1"
-        OutputFile="%bdmisc"
+        OutputFile="%bdflir_dts"
         CompilerConfigName="Latest Version">
         <Menu>
             <Target
@@ -201,15 +201,7 @@
             Filters="*.c;*.C;*.cc;*.cpp;*.cp;*.cxx;*.c++;*.prg;*.pas;*.dpr;*.asm;*.s;*.bas;*.java;*.cs;*.sc;*.e;*.cob;*.html;*.rc;*.tcl;*.py;*.pl;*.d;*.m;*.mm;*.go"/>
         <Folder
             Name="Header Files"
-            Filters="*.h;*.H;*.hh;*.hpp;*.hxx;*.h++;*.inc;*.sh;*.cpy;*.if">
-            <F N="build-all.sh"/>
-            <F N="build-all_noclean.sh"/>
-            <F N="build-dtbs.sh"/>
-            <F N="clean.sh"/>
-            <F N="copy_dtbs_to_sdcard.sh"/>
-            <F N="copy_to_sdcard.sh"/>
-            <F N="make_config.sh"/>
-        </Folder>
+            Filters="*.h;*.H;*.hh;*.hpp;*.hxx;*.h++;*.inc;*.sh;*.cpy;*.if"/>
         <Folder
             Name="Resource Files"
             Filters="*.ico;*.cur;*.dlg"/>
@@ -218,6 +210,11 @@
             Filters="*.bmp"/>
         <Folder
             Name="Other Files"
-            Filters=""/>
+            Filters="">
+            <F N="arch/arm/boot/dts/imx6q-var-dart-flir.dts"/>
+            <F N="arch/arm/boot/dts/imx6q.dtsi"/>
+            <F N="arch/arm/boot/dts/imx6qdl-var-dart-flir.dtsi"/>
+            <F N="arch/arm/boot/dts/imx6qdl-var-displays-flir.dtsi"/>
+        </Folder>
     </Files>
 </Project>

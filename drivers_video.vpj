@@ -284,6 +284,7 @@
             <F N="drivers/video/fbdev/omap2/dss/dss_features.c"/>
             <F N="drivers/video/console/dummycon.c"/>
             <F N="drivers/video/fbdev/via/dvi.c"/>
+            <F N="drivers/video/backlight/ecx337af.c"/>
             <F N="drivers/video/fbdev/efifb.c"/>
             <F N="drivers/video/fbdev/omap2/displays-new/encoder-opa362.c"/>
             <F N="drivers/video/fbdev/omap2/displays-new/encoder-tfp410.c"/>
@@ -877,6 +878,7 @@
             <F N="drivers/video/backlight/generic_bl.o"/>
             <F N="drivers/video/fbdev/mxc/hannstar_cabc.o"/>
             <F N="drivers/video/hdmi.o"/>
+            <F N="drivers/video/backlight/Kconfig"/>
             <F N="drivers/video/backlight/l4f00242t03.o"/>
             <F N="drivers/video/backlight/lcd.o"/>
             <F N="drivers/video/fbdev/mxc/ldb.o"/>
@@ -899,6 +901,9 @@
             <F N="drivers/video/logo/logo_superh_clut224.ppm"/>
             <F N="drivers/video/logo/logo_superh_mono.pbm"/>
             <F N="drivers/video/logo/logo_superh_vga16.ppm"/>
+            <F
+                N="drivers/video/backlight/Makefile"
+                Type="Makefile"/>
             <F N="drivers/video/fbdev/mxc/mipi_dsi.o"/>
             <F N="drivers/video/fbdev/mxc/mipi_dsi_samsung.o"/>
             <F N="drivers/video/fbdev/core/modedb.o"/>
