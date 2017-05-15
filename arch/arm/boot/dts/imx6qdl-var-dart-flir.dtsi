@@ -652,7 +652,7 @@
 	pinctrl-0 = <&pinctrl_ecspi1_1>;
 	status = "okay";
 #if 1
-	/* Support for the Sony ECX337AF OLED display *
+	/* Support for the Sony ECX337AF OLED display */
 	ecx337af: ecx337af@00 {
 		compatible = "sony,ecx337af";
 		spi-max-frequency = <500000>;
